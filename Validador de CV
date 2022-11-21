@@ -1,0 +1,382 @@
+//	Autor: Davi Moreira
+//	Data: 21/11/22
+//	Função: Programa para validar e gerar códigos verificadores de 3 tipso de documentos: RG(SSP),CPF e CNPJ
+//	
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+
+
+int cpf() {
+	char c_cpf[12], dig1, dig2, c_cpf2[15];
+	int tamanho, i, j,soma = 0, num, dig;
+
+
+	printf("Para verificar gerar os codigos verificadores entre com 9 primeiros digitos\n");
+	printf("Para validar um CPF entre com os 11 digitos\n");
+	printf("Digite o CPF sem pontos: ");
+	gets(c_cpf);
+	system("cls");
+	tamanho = strlen(c_cpf);
+	if( (strcmp(c_cpf,"00000000000") == 0) || (strcmp(c_cpf,"11111111111") == 0) || (strcmp(c_cpf,"22222222222") == 0) ||
+	        (strcmp(c_cpf,"33333333333") == 0) || (strcmp(c_cpf,"44444444444") == 0) || (strcmp(c_cpf,"55555555555") == 0) ||
+	        (strcmp(c_cpf,"66666666666") == 0) || (strcmp(c_cpf,"77777777777") == 0) || (strcmp(c_cpf,"88888888888") == 0) ||
+	        (strcmp(c_cpf,"99999999999") == 0) ||
+	        (strcmp(c_cpf,"000000000") == 0) || (strcmp(c_cpf,"111111111") == 0) || (strcmp(c_cpf,"222222222") == 0) ||
+	        (strcmp(c_cpf,"333333333") == 0) || (strcmp(c_cpf,"444444444") == 0) || (strcmp(c_cpf,"555555555") == 0) ||
+	        (strcmp(c_cpf,"666666666") == 0) || (strcmp(c_cpf,"777777777") == 0) || (strcmp(c_cpf,"888888888") == 0) ||
+	        (strcmp(c_cpf,"999999999") == 0)
+	  ) {
+		printf("\nCPF invalido.");
+		cpf();
+	} else {
+		if(tamanho < 9 || tamanho > 11 || tamanho == 10) {
+			printf("CPF invalido.\n");
+			cpf();
+
+		} else {
+			if(tamanho == 9) {
+				for(i=1; i< 10; i++) {
+					num = c_cpf[i-1] - 48;
+					soma += (num * i);
+				}
+				dig = soma % 11;
+				if(dig == 10) {
+					dig1 = '0';
+				} else {
+					dig1 = dig + '0';
+				}
+				c_cpf[9] = dig1;
+				soma = 0;
+				for(i=0; i< 10; i++) {
+					num = c_cpf[i] - 48;
+					soma += (num * i);
+				}
+				dig = soma % 11;
+				if(dig == 10) {
+					dig1 = '0';
+				} else {
+					dig2 = dig + '0';
+				}
+				c_cpf[10] = dig2;
+
+
+				c_cpf2[0] = c_cpf[0];
+				c_cpf2[1] = c_cpf[1];
+				c_cpf2[2] = c_cpf[2];
+				c_cpf2[3] = '.';
+				c_cpf2[4] = c_cpf[3];
+				c_cpf2[5] = c_cpf[4];
+				c_cpf2[6] = c_cpf[5];
+				c_cpf2[7] = '.';
+				c_cpf2[8] = c_cpf[6];
+				c_cpf2[9] = c_cpf[7];
+				c_cpf2[10] = c_cpf[8];
+				c_cpf2[11] = '-';
+				c_cpf2[12] = c_cpf[9];
+				c_cpf2[13] = c_cpf[10];
+
+				printf("O CPF gerado foi: %s",c_cpf2);
+			}
+
+		}
+		if(tamanho == 11) {
+			strcpy(c_cpf2, c_cpf);
+
+			for(i=1; i< 10; i++) {
+				num = c_cpf[i-1] - 48;
+				soma += (num * i);
+			}
+			dig = soma % 11;
+			if(dig == 10) {
+				dig1 = '0';
+			} else {
+				dig1 = dig + '0';
+			}
+			c_cpf[9] = dig1;
+			soma = 0;
+			for(i=0; i< 10; i++) {
+				num = c_cpf[i] - 48;
+				soma += (num * i);
+			}
+			dig = soma % 11;
+			if(dig == 10) {
+				dig1 = '0';
+			} else {
+				dig2 = dig + '0';
+			}
+			c_cpf[10] = dig2;
+
+
+			if(strcmp(c_cpf, c_cpf2) == 0) {
+				printf("CPF valido");
+			} else {
+				printf("CPF invalido");
+			}
+		}
+	}
+	return 1;
+}
+
+
+
+
+int cnpj() {
+
+
+	char c_cnpj[15],c_cnpj2[20], dig1, dig2;
+	int  soma, num, i, tamanho;
+
+	printf("Para gerar os CV do CNPJ entre com apenas os 8 primeiros digitos\n");
+	printf("Para validar um CNPJ entre com os 14 digitos\n");
+	printf("Digite o CNPJ sem pontos: ");
+	gets(c_cnpj);
+	system("cls");
+	tamanho = strlen(c_cnpj);
+
+	if(tamanho < 8 || tamanho > 14 || tamanho == 9 || tamanho == 10 || tamanho == 11 || tamanho == 12 || tamanho == 13) {
+		printf("CNPJ digitado invalido\n");
+		cnpj();
+	} else {
+		if(strcmp(c_cnpj,"00000000") == 0 || strcmp(c_cnpj,"11111111") == 0 || strcmp(c_cnpj,"22222222") == 0 ||
+		        strcmp(c_cnpj,"33333333") == 0 || strcmp(c_cnpj,"44444444") == 0 || strcmp(c_cnpj,"55555555") == 0 ||
+		        strcmp(c_cnpj,"66666666") == 0 || strcmp(c_cnpj,"77777777") == 0 || strcmp(c_cnpj,"88888888") == 0 ||
+		        strcmp(c_cnpj,"99999999") == 0) {
+			printf("CNPJ digitado invalido\n");
+			cnpj();
+		} else {
+			if(strcmp(c_cnpj,"00000000000000") == 0 || strcmp(c_cnpj,"11111111111111") == 0 || strcmp(c_cnpj,"22222222222222") == 0 ||
+			        strcmp(c_cnpj,"33333333333333") == 0 || strcmp(c_cnpj,"44444444444444") == 0 || strcmp(c_cnpj,"55555555555555") == 0 ||
+			        strcmp(c_cnpj,"66666666666666") == 0 || strcmp(c_cnpj,"77777777777777") == 0 || strcmp(c_cnpj,"88888888888888") == 0 ||
+			        strcmp(c_cnpj,"99999999999999") == 0) {
+				printf("CNPJ digitado invalido\n");
+				cnpj();
+			} else {
+				if(tamanho == 8) {
+					c_cnpj[8] = '0';
+					c_cnpj[9] = '0';
+					c_cnpj[10] = '0';
+					c_cnpj[11] = '1';
+
+					soma = (((c_cnpj[0] - 48) * 6) + ((c_cnpj[1] - 48) * 7 + ((c_cnpj[2] - 48) * 8) + ((c_cnpj[3] - 48) * 9) +
+					                                  ((c_cnpj[4] - 48) * 2) + ((c_cnpj[5] - 48) * 3) + ((c_cnpj[6] - 48) * 4) + ((c_cnpj[7] - 48) * 5) +
+					                                  ((c_cnpj[8] - 48) * 6) + ((c_cnpj[9] - 48) * 7) + ((c_cnpj[10] - 48) * 8) + ((c_cnpj[11] - 48) * 9)));
+
+
+					dig1 = soma % 11;
+					if(dig1 == 10) {
+						c_cnpj[12] = '0';
+						soma = 0;
+					} else {
+						c_cnpj[12] = dig1 + '0';
+						soma = 0;
+					}
+
+					soma = (((c_cnpj[0] - 48) * 5) + ((c_cnpj[1] - 48) * 6) + ((c_cnpj[2] - 48) * 7) + ((c_cnpj[3] - 48) * 8) +
+					        ((c_cnpj[4] - 48) * 9) + ((c_cnpj[5] - 48) * 2) + ((c_cnpj[6] - 48) * 3) + ((c_cnpj[7] - 48) * 4) +
+					        ((c_cnpj[8] - 48) * 5) + ((c_cnpj[9] - 48) * 6) + ((c_cnpj[10] - 48) * 7)+ ((c_cnpj[11] - 48) * 8) +
+					        ((c_cnpj[12] - 48) * 9));
+
+
+					dig2 = soma % 11;
+					if(dig2 == 10) {
+						c_cnpj[13] = '0';
+						soma = 0;
+					} else {
+						c_cnpj[13] = dig2 + '0';
+						soma = 0;
+					}
+
+					c_cnpj2[0] = c_cnpj[0], 	c_cnpj2[1] = c_cnpj[1], 	c_cnpj2[2] = '.', 	c_cnpj2[3] = c_cnpj[2],
+					             c_cnpj2[4] = c_cnpj[3],		c_cnpj2[5] = c_cnpj[4], 	c_cnpj2[6] = '.', 	c_cnpj2[7] = c_cnpj[5],
+					                          c_cnpj2[8] = c_cnpj[6],		c_cnpj2[9] = c_cnpj[7], 	c_cnpj2[10] = '/',	c_cnpj2[11] = c_cnpj[8];
+					c_cnpj2[12] = c_cnpj[9],	c_cnpj2[13] = c_cnpj[10],	c_cnpj2[14] = c_cnpj[11],
+					              c_cnpj2[15] = '-',			c_cnpj2[16] = c_cnpj[12];
+					c_cnpj2[17] = c_cnpj[13], c_cnpj2[18] = '\0';
+
+					printf("\nO CNPJ gerado foi: %s", c_cnpj2);
+
+				}
+				if(tamanho == 14) {
+					strcpy(c_cnpj2, c_cnpj);
+
+					c_cnpj[8] = '0';
+					c_cnpj[9] = '0';
+					c_cnpj[10] = '0';
+					c_cnpj[11] = '1';
+
+					soma = (((c_cnpj[0] - 48) * 6) + ((c_cnpj[1] - 48) * 7 + ((c_cnpj[2] - 48) * 8) + ((c_cnpj[3] - 48) * 9) +
+					                                  ((c_cnpj[4] - 48) * 2) + ((c_cnpj[5] - 48) * 3) + ((c_cnpj[6] - 48) * 4) + ((c_cnpj[7] - 48) * 5) +
+					                                  ((c_cnpj[8] - 48) * 6) + ((c_cnpj[9] - 48) * 7) + ((c_cnpj[10] - 48) * 8) + ((c_cnpj[11] - 48) * 9)));
+
+
+					dig1 = soma % 11;
+					if(dig1 == 10) {
+						c_cnpj[12] = '0';
+						soma = 0;
+					} else {
+						c_cnpj[12] = dig1 + '0';
+						soma = 0;
+					}
+
+					soma = (((c_cnpj[0] - 48) * 5) + ((c_cnpj[1] - 48) * 6) + ((c_cnpj[2] - 48) * 7) + ((c_cnpj[3] - 48) * 8) +
+					        ((c_cnpj[4] - 48) * 9) + ((c_cnpj[5] - 48) * 2) + ((c_cnpj[6] - 48) * 3) + ((c_cnpj[7] - 48) * 4) +
+					        ((c_cnpj[8] - 48) * 5) + ((c_cnpj[9] - 48) * 6) + ((c_cnpj[10] - 48) * 7)+ ((c_cnpj[11] - 48) * 8) +
+					        ((c_cnpj[12] - 48) * 9));
+
+
+					dig2 = soma % 11;
+					if(dig2 == 10) {
+						c_cnpj[13] = '0';
+						soma = 0;
+					} else {
+						c_cnpj[13] = dig2 + '0';
+						soma = 0;
+					}
+
+					if(strcmp(c_cnpj2, c_cnpj) == 0) {
+						printf("CNPJ digitado eh valido\n");
+					} else {
+						printf("O CNPJ digitado eh invalido\n");
+					}
+				}
+			}
+		}
+
+	}
+
+	return 1;
+}
+
+int rg() {
+
+	char c_rg[10],c_rg2[14], dig1;
+	int  soma, num, i, tamanho;
+
+	printf("Para gerar o CV do RG entre com apenas os 8 primeiros digitos\n");
+	printf("Para validar um RG entre com os 9 digitos\n");
+	printf("Digite o RG sem pontos: ");
+	gets(c_rg);
+	system("cls");
+	tamanho = strlen(c_rg);
+
+	if(tamanho < 8 || tamanho > 9) {
+		printf("RG digitado invalido\n");
+		rg();
+	} else {
+		if(strcmp(c_rg,"00000000") == 0 || strcmp(c_rg,"11111111") == 0 || strcmp(c_rg,"22222222") == 0 ||
+		        strcmp(c_rg,"33333333") == 0 || strcmp(c_rg,"44444444") == 0 || strcmp(c_rg,"55555555") == 0 ||
+		        strcmp(c_rg,"66666666") == 0 || strcmp(c_rg,"77777777") == 0 || strcmp(c_rg,"88888888") == 0 ||
+		        strcmp(c_rg,"99999999") == 0) {
+			printf("RG digitado invalido\n");
+			rg();
+		} else {
+			if(strcmp(c_rg,"000000000") == 0 || strcmp(c_rg,"111111111") == 0 || strcmp(c_rg,"222222222") == 0 ||
+			        strcmp(c_rg,"333333333") == 0 || strcmp(c_rg,"444444444") == 0 || strcmp(c_rg,"555555555") == 0 ||
+			        strcmp(c_rg,"666666666") == 0 || strcmp(c_rg,"777777777") == 0 || strcmp(c_rg,"888888888") == 0 ||
+			        strcmp(c_rg,"999999999") == 0) {
+				printf("RG digitado invalido\n");
+				rg();
+			} else {
+				if(tamanho == 8) {
+					for(i=0; i < 8; i++) {
+						num = c_rg[i] - 48;
+						soma += (num * (9 - i));
+					}
+
+					dig1 = soma % 11;
+
+					if(dig1 == 10) {
+						c_rg[8] = 'X';
+					} else {
+						c_rg[8] = dig1 + '0';
+					}
+
+
+					c_rg2[0] = c_rg[0];
+					c_rg2[1] = c_rg[1];
+					c_rg2[2] = '.'	  ;
+					c_rg2[3] = c_rg[2];
+					c_rg2[4] = c_rg[3];
+					c_rg2[5] = c_rg[4];
+					c_rg2[6] = '.'	  ;
+					c_rg2[7] = c_rg[5];
+					c_rg2[8] = c_rg[6];
+					c_rg2[9] = c_rg[7];
+					c_rg2[10] = '-'   ;
+					c_rg2[11] = c_rg[8];
+					c_rg2[12] = '\0';
+
+					printf("O RG gerado foi: %s\n", c_rg2);
+				} else {
+					if(tamanho == 9) {
+						strcpy(c_rg2, c_rg);
+
+						for(i=0; i < 8; i++) {
+							num = c_rg[i] - 48;
+							soma += (num * (9 - i));
+						}
+
+						dig1 = soma % 11;
+
+						if(dig1 == 10) {
+							c_rg[8] = 'X';
+						} else {
+							c_rg[8] = dig1 + '0';
+						}
+
+						if(strcmp(c_rg,c_rg2) == 0) {
+							printf("RG digitado valido\n");
+						} else {
+							printf("RG digitado invalido\n");
+						}
+
+					}
+				}
+			}
+		}
+
+	}
+	return 1;
+}
+
+int main(){
+	
+	int opcao;
+
+	
+	printf("SELECIONE A OPCAO\n\n");
+	printf("---- MENU ----\n");
+	printf("1 - CPF \n");
+	printf("2 - CNPJ\n");
+	printf("3 - RG	\n");
+	printf("4 - SAIR\n");
+	printf("--------------\n");
+	scanf("%d", &opcao);
+	system("cls");
+	
+	switch(opcao){
+		case 1:
+			cpf();
+			break;
+		
+		case 2:
+			cnpj();
+			break;
+		
+		case 3:
+			rg();
+			break;
+		
+		case 4:
+			printf("Programa encerrado!");
+			break;
+		
+		default:
+			printf("Opcao invalida! Selecione uma opaco valida");
+			break;
+	}
+	
+	return 1;
+}
