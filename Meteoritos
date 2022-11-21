@@ -1,0 +1,92 @@
+//	data: 09/11/2022
+//	Aluno: Davi Moreira
+//	Programa: Contar meteoritos dentro de um perimetro delimitado.
+//  Objetivo é determinar quantos metoritos cairam dentro do perimetro e se cairam em cima dos eixos delimitadores.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int coord_sup[2],coord_inf[2], n_met;
+bool loop = true;
+
+int coordenadas() {
+
+	printf("Digite a coordenada do canto superior esquerdo [x] [y]: ");
+	scanf("%d %d", &coord_sup[0], &coord_sup[1]);
+	system("cls");
+
+	printf("Digite a coordenada do canto inferior direito [x] [y]: ");
+	scanf("%d %d", &coord_inf[0], &coord_inf[1]);
+	system("cls");
+
+	if(coord_inf[0] == 0 && coord_inf[1] == 0 && coord_sup[0] == 0 && coord_sup[1] == 0) {
+		printf("Fim do programa\n");
+		loop = false;
+	} else {
+		if( coord_inf[0] <= coord_sup[0] || coord_inf[1] >= coord_sup[1]) {
+			printf("Coordenadas invalidas.\n");
+			coordenadas();
+		}
+		if(coord_sup[0] >= 10000 || coord_inf[0] >= 10000 || coord_sup[1] >= 10000 || coord_inf[1] >= 10000) {
+			printf("Coordenadas invalidas.\n");
+			coordenadas();
+		}
+	}
+	return 0;
+}
+
+
+int main() {
+
+	coordenadas();
+
+	while(loop) {
+
+		printf("Quantos meteoritos cairam? ");
+		scanf("%d", &n_met);
+		system("cls");
+
+		int met_x[n_met], met_y[n_met],i,j,caiu = 0, teste = 1;
+
+		for(i=0; i< n_met; i++) {
+			printf("Escreva as coordenadas da queda [x] [y]: ");
+			scanf("%d %d", &met_x[i], &met_y[i]);
+			system("cls");
+		}
+
+		printf("Teste %d\n", teste);
+		for(j=0; j<n_met; j++) {
+			if(met_x[j] > coord_sup[0] && met_y[j] < coord_sup[1]) {
+				if(met_x[j] < coord_inf[0] && met_y[j] > coord_inf[1]) {
+					caiu++;
+				}
+			}
+			if(met_x[j] == coord_sup[0]) {
+				printf("Meteorito caiu em cima da linha X1\n");
+				caiu++;
+			}
+			if(met_x[j] == coord_inf[0]) {
+				printf("Meteorito caiu em cima da linha X2\n");
+				caiu++;
+			}
+			if(met_y[j] == coord_sup[1]) {
+				printf("Meteorito caiu em cima da linha Y1\n");
+				caiu++;
+			}
+			if(met_y[j] == coord_inf[1]) {
+				printf("Meteorito caiu em cima da linha Y2\n");
+				caiu++;
+			}
+			if(met_x[j] == coord_sup[0] && met_y[j] == coord_sup[1]){
+				caiu --;
+			}
+			if(met_x[j] == coord_inf[0] && met_y[j] == coord_inf[1]){
+				caiu --;
+			}
+		}
+		printf("%d\n\n", caiu);
+		caiu = 0;
+		coordenadas();
+	}
+	return 0;
+}
