@@ -1,0 +1,116 @@
+/*
+
+	Autor: Davi Moreira
+	Data: Dezembro de 2022
+
+*/
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+
+/* ========================================================================= */
+/* --- Constantes --- */
+#define byte_n  6
+
+/* ========================================================================= */
+/* --- Macros --- */
+
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+unsigned char cripto(unsigned char b[], int idx);
+unsigned char descripto(unsigned char b[], int idx);
+
+/* ========================================================================= */
+/* --- Variáveis Globais --- */
+
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+	
+	unsigned char mem[byte_n];
+    int i, col;
+    char opt;
+
+    do{
+        system("cls");
+
+        for ( i = 0; i < byte_n; i++)
+        {
+            printf("Inserir byte %d: ", i);
+            scanf("%d", &mem[i]);
+        }/* end for */
+
+        puts("+++++++++++++++++");
+        puts("Memoria original");
+
+        for ( i = 0, col = 0; i < byte_n; i++, col++)
+        {
+            printf("%2Xh ", mem[i]);
+
+            if(col >= 9)
+            {
+                putchar('\n');
+                col = 0;
+            }/* end if col */
+        }/* end for */
+        
+        putchar('\n');
+        puts("+++++++++++++++++");
+        putchar('\n');
+        puts("+++++++++++++++++");
+        puts("Memoria encriptada: ");
+
+        for ( i = 0, col = 0; i < byte_n; i++, col++)
+        {
+            printf("%2Xh ", cripto(mem, i));
+
+            if(col >= 9)
+            {
+                putchar('\n');
+                col = 0;
+            }/* end if col */
+        }/* end for*/
+        
+        putchar('\n');
+        puts("+++++++++++++++++");
+        putchar('\n');
+        puts("+++++++++++++++++");
+        puts("Memoria descriptografada: ");
+
+        for ( i = 0, col = 0; i < byte_n; i++, col++)
+        {
+            printf("%2Xh ", descripto(mem, i));
+
+            if(col >= 9)
+            {
+                putchar('\n');
+                col = 0;
+            }/* end if col */
+        }/* end for*/
+
+        putchar('\n');
+        putchar('\n');
+        printf("Fazer nova criptografia?\n");
+        printf("(s) sim | (n) nao >>> ");
+        scanf(" %c", &opt);
+        
+    }while (opt != 'n' && opt != 'N');  
+	
+	system("PAUSE");
+	return 0;
+}
+
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
+
+
+
+
+/* ========================================================================= */
