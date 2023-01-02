@@ -1,0 +1,58 @@
+/*
+
+	Autor: Davi Moreira
+	Data: Dezembro de 2022
+
+*/
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+void freq_555(float Ra, float Rb, float C);
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+
+    float ra, rb, c;
+	
+	while(1)
+	{
+		printf("Entre com o valor de Ra= ");
+		scanf("%f", &ra);
+		
+		printf("Entre com o valor de Rb= ");
+		scanf("%f", &rb);
+		
+		printf("Entre com o valor de C= ");
+		scanf("%f", &c);
+		
+		freq_555(ra, rb, c);
+		
+		//freq_555(1000.0, 10000.0, 1.0E-6);
+	}
+	
+	
+	
+	system("PAUSE");
+	return 0;
+}
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
+
+void freq_555(float Ra, float Rb, float C)
+{
+	float freq;
+	
+	freq = 1.44 / ((Ra+2*Rb) * C);
+	
+	printf("freq= %.2fHz\n", freq);
+	
+}// end freq_555
