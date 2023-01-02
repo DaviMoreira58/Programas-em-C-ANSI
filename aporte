@@ -1,0 +1,81 @@
+/*
+	
+	Autor: Davi Moreira
+	Data: Dezembro de 2022
+
+*/
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+/* ========================================================================= */
+/* --- Constantes --- */
+#define N 5
+
+/* ========================================================================= */
+/* --- Macros --- */
+
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+
+
+/* ========================================================================= */
+/* --- Variáveis Globais --- */
+
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+	
+	float ativo[N], qtd[N];
+	int i,j;
+	char opt;
+	
+	do{
+		float aporte = 0, sub = 0;
+	
+		printf("Insira o valor do aporte $: ");
+		scanf("%f", &aporte);
+		
+		for(i=0;i<N;i++){
+			printf("Ativo %d $: ", i+1);
+			scanf("%f", &ativo[i]);
+			
+			printf("Qtd   %d  : ", i+1);
+			scanf("%f", &qtd[i]);
+			
+		}
+		
+		for(i=0;i<N;i++)
+			sub += (ativo[i] * qtd[i]);
+			
+		printf("Total $  : %.2f\n", sub);
+				
+		if(sub > aporte)
+			printf("Aporte Insuficiente!\n\a");
+		else
+			printf("Aporte suficiente.\n");
+			
+			
+		printf("Calcular novamente?\n");
+		printf("(s) sim | (n) nao >>> ");
+		scanf(" %c", &opt);	
+		system("CLS");
+		
+	}while(opt != 'n' && opt != 'N');
+	
+	return 0;
+}
+
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
+
+
+
+
+/* ========================================================================= */
