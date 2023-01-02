@@ -1,0 +1,93 @@
+/*
+
+	Autor: Davi Moreira
+	Data: Dezembro de 2022
+
+
+
+*/
+/* ====================================================================================================== */
+/* Bibliotecas */
+#include <stdio.h>
+#include <stdlib.h>
+
+/* ====================================================================================================== */
+/* Protótipos das Funções */
+void linhas(); 	//Antes do main está os protótipos, e o desenvolvimento é apenas depois do main
+
+void asteriscos();
+
+void sustenidos();
+
+
+/* ====================================================================================================== */
+/* Função Principal */
+
+int main() {
+/* ====================================================================================================== */
+	
+	/* 	Criar uma função/procedimento em C que imprima 10 asteriscos em sequência, sempre que o usuário
+		digitar o número 7.	*/
+	
+	unsigned numero;
+	
+	
+	while(1)
+	{
+		printf("Digite um numero: ");
+		scanf("%d", &numero);
+		
+		if(numero == 7) asteriscos();
+		
+		if(numero == 8) sustenidos();
+		
+		if(!numero)     break;
+	} // end while
+	
+	
+	
+	
+	
+	system("PAUSE");
+	return 0;
+} /*end main*/
+
+
+/* ====================================================================================================== */
+/* Desenvolvimento das Funções */
+void linhas()
+{
+	int i, j;
+	
+	
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<30;j++)
+			putchar('#');
+		putchar('\n');
+	}//end for
+	
+}//end linhas
+
+void asteriscos()
+{
+	char asts;
+	
+	for(asts=0;asts<10;asts++)
+		putchar('*');
+	putchar('\n');
+	
+}//end asteriscos
+
+void sustenidos()
+{
+	char sust;
+	
+	for(sust=0;sust<10;sust++)
+		putchar('#');
+	putchar('\n');
+	
+}//end sustenidos
+
+
+/* ====================================================================================================== */
