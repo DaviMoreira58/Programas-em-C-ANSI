@@ -1,0 +1,106 @@
+/*
+	
+	Autor: Davi Moreira
+	Data: Dezembro de 2022
+
+*/
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+void frequencia(float R, float C, char ch);
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+	
+	float R, C;
+	char ch, loop = 1;
+	
+	while(loop)
+	{
+		
+		puts("|--------------------------------|");
+		puts("|    (A) Calcula Frequencia      |");
+		puts("|    (B) Calcula Tempo           |");
+		puts("|    (Q) Sair                    |");
+		puts("|--------------------------------|");
+		scanf(" %c", &ch);
+		
+		system("CLS");
+		
+		switch(ch)
+		{
+			case 'A' :
+				system("CLS");
+		
+				printf("Digite o valor do resistor: ");
+				scanf("%f", &R);
+				
+				printf("Digite o valor do capacitor: ");
+				scanf("%f", &C);
+				
+				break;
+				
+				
+			case 'B' :
+				system("CLS");
+		
+				printf("Digite o valor do resistor: ");
+				scanf("%f", &R);
+				
+				printf("Digite o valor do capacitor: ");
+				scanf("%f", &C);
+				
+				break;
+			
+			case 'Q' :
+				loop = 0;
+				break;
+				
+			default :
+				printf("Opcao invalida.\n");
+		
+		}
+						
+		frequencia(R, C, ch);	
+	
+	}
+	
+	system("PAUSE");
+	return 0;
+}
+
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
+void frequencia(float R, float C, char ch)
+{
+	
+	float f, pi = 3.141592, t;
+	
+	if(ch == 'A')
+	{
+		
+		f = 1 / (2*pi * R * C);
+		
+		system("CLS");
+		
+		printf("A frequencia calculada foi: %.6fHz\n", f);
+	}
+	
+	if(ch == 'B')
+	{
+		t = R * C;
+		
+		system("CLS");
+		
+		printf("O tempo calculado foi: %.6fs\n", t);
+	}
+	
+}
