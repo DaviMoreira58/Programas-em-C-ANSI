@@ -1,0 +1,56 @@
+/*
+
+		
+		Autor: Davi Moreira
+		Data: Dezembro de 2022
+
+
+
+
+
+*/
+/* ================================================================================================================== */
+/* Bibliotecas */
+#include <stdio.h>
+#include <stdlib.h>
+
+/* ================================================================================================================== */
+/* Programa Principal */
+int main() {
+	
+	
+	unsigned short n, n2, n3;
+	
+	printf("Insira um numero ate 85: ");
+	scanf("%d", &n);
+	
+	if(n > 85){
+		printf("Erro, numero invalido\n");
+	}
+	else{
+		
+		system("CLS");
+		
+		n2 = --n;
+		printf("%d\n", n2);
+
+		n++;
+		n3 = ++n;
+		printf("%d\n", n3);
+		n--;
+
+		n = n + n2 + n3;
+		printf("%d\n", n);
+		
+		n = n * n;
+		printf("%d\n", n);
+	}
+	
+	
+	
+	system("PAUSE");
+	return 0;
+	
+}/* fim principal */
+/* ================================================================================================================== */
+
