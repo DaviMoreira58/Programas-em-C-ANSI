@@ -1,0 +1,49 @@
+/*	
+    Autor: Davi Moreira
+    Data: Dezembro de 2022
+
+
+*/
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+float poten(float val, int n);
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+
+
+	float val = 2.0;
+	int     n = 12;
+		
+	printf("%.2f elevado na %d = %.2f\n", val, n, poten(val, n));
+	
+	
+	
+	system("PAUSE");
+	return 0;
+}
+
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
+
+float poten(float val, int n)
+{
+	float pot;
+	int     i;
+	
+	
+	for(i=1, pot=1.0;i<=n;i++)
+		pot *= val;
+	
+	return pot;
+	
+}
