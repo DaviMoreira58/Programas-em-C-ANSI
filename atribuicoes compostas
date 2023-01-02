@@ -1,0 +1,38 @@
+/*
+
+  Autor: Davi Moreira
+	Data: Dezembro de 20222
+
+*/
+/* =============================================================================================================== */
+/* Bibliotecas */
+#include <stdio.h>
+#include <stdlib.h>
+
+/* =============================================================================================================== */
+/* Função Principla */
+int main() {
+	
+	
+	int a = 2, b = 3;
+	
+	
+	puts("A equivale 2 e B equivale 3");
+	printf("A = A + B = %d\n", a = a + b);
+	printf("A = A - B = %d\n", a = a - b);
+	printf("A = A * B = %d\n", a = a * b);
+	printf("A = A / B = %d\n", a = a / b);
+	printf("A = A %% B = %d\n", a = a % b);
+	
+	putchar('\n');
+	
+	printf("A += B = %d\n", a += b);
+	printf("A -= B = %d\n", a -= b);
+	printf("A *= B = %d\n", a *= b);
+	printf("A /= B = %d\n", a /= b);
+	printf("A %%= B = %d\n", a %= b);
+	
+	system("PAUSE");
+	return 0;
+}/* end main */
+/* =============================================================================================================== */
