@@ -1,0 +1,76 @@
+/*
+	
+	Autor: Davi Moreira
+	Data: Dezembro de 2022
+
+*/
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+/* ========================================================================= */
+/* --- Macros --- */
+
+#define mediaP(n1,n2,n3,p1,p2,p3)	((n1 * p1) + (n2 * p2) + (n3 * p3)) / (p1 + p2 + p3)		
+				
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+
+
+/* ========================================================================= */
+/* --- Variáveis Globais --- */
+
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+	
+	float  n1,n2,n3,p1,p2,p3, mp;
+	char op;
+	
+	do{
+		
+		printf("Digite a nota 1: ");
+		scanf("%f", &n1);
+		printf("Digite o peso 1: ");
+		scanf("%f", &p1);
+		
+		printf("Digite a nota 2: ");
+		scanf("%f", &n2);
+		printf("Digite o peso 2: ");
+		scanf("%f", &p2);
+		
+		printf("Digite a nota 3: ");
+		scanf("%f", &n3);
+		printf("Digite o peso 3: ");
+		scanf("%f", &p3);
+		
+		mp = mediaP(n1,n2,n3,p1,p2,p3);
+		
+		printf("%.2f\n", mp);
+		
+		printf("Deseja continuar? \n");
+		printf(" (n) Sair\n");
+		printf(" (s) Continuar\n");
+		scanf(" %c", &op);
+		
+		system("CLS");
+		
+	}while(op != 'n' && op != 'N');
+	
+	
+
+	
+	
+	
+	system("PAUSE");
+	return 0;
+}
+
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
