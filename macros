@@ -1,0 +1,154 @@
+/*
+	
+	Autor: Davi Moreira
+	Data: Dezembro de 2022
+
+*/
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+/* ========================================================================= */
+/* --- Macros --- */
+#define multp(a,b) a*b
+
+#define div(a,b)   a/b
+
+#define maior(a,b) a>b ? a : b
+
+#define		hello		printf("Hello  ");	\
+						printf("World! ");	\
+						printf("Yes!\n ")
+
+#define disp(text) printf(#text)
+
+#define numbers(index) id##index	//## operador de concatenação
+
+#define sorteia10	register int i;					\
+					for(i=0;i<10;i++) 				\
+						printf("%d\n", rand() / 128)
+
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+
+
+/* ========================================================================= */
+/* --- Variáveis Globais --- */
+
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+	
+	/*
+	int resultado;
+	
+	//resultado = multp(5,7);
+	
+	//printf("%d\n", resultado);
+	
+	//resultado = 11;
+	
+	//printf("%d\n", resultado + multp(5,7));
+	
+	resultado = multp(10,7);
+	
+	printf("%d\n", resultado);
+	*/
+	
+/* ========================================================================= */
+
+	/*	Macros suportam utilizar mais de um tipo de variavel, já que não está
+		associada a nenhuma.	*/
+		
+	/*
+	int result_i;
+	float result_f;
+	
+	result_i = div(10,5);
+	result_f = div(123.47,27.8);
+	
+	printf("%d\n"  , result_i);
+	printf("%.2f\n", result_f);
+	*/
+	
+	
+/* ========================================================================= */
+	/*
+	
+	printf("%d\n", maior(77,25));
+	printf("%d\n", maior(77,325));
+	printf("%.2f\n", maior(12.27,12.38));
+	
+	*/
+	
+	
+/* ========================================================================= */
+	
+//	hello;
+	
+/* ========================================================================= */
+
+	/*	Forçando um erro na macro por não usar os parenteses	*/
+	/*
+	int mult_res;
+	
+	//mult_res = multp(4,4);	//resulta 16
+	
+	mult_res = multp(1+4,4+6); //esperamos o resultado 50, porem sai 23. 4*4 + 1 + 6
+	
+	//mult_res = multp((1+4),(4+6)); //resolve o problema assim, ou alterando a macro, que é melhor
+	
+	printf("%d\n", mult_res);
+	*/
+	
+/* ========================================================================= */
+
+	/*
+	disp(Aqui sem "aspas"!!\n);	
+	*/
+
+
+
+/* ========================================================================= */
+	
+	/*
+	int id1 = 50, 
+		id2 = 10, 
+		id3 = 14, 
+		id4 = 18;
+	
+	printf("%d\n", numbers(1));
+	printf("%d\n", numbers(2));
+	printf("%d\n", numbers(3));
+	printf("%d\n", numbers(4));
+	
+	*/
+	
+/* ========================================================================= */
+
+	/*	Impremente uma macro que faça o sorteio de 10 números aleatórios de
+		8 bits e imprimima-os na tela.	
+		
+		Para fazer isso vamos utilizara a função rand() que gera 15 bits, ou
+		seja, 2^15 = 32.786. Porém precisamos que vá até 8 bits, ou seja 
+		2^8 = 256 . Então pegamos 32.786 / 256 = 128. Portanto para ter um 
+		numero de 8 bits, precisamos dividir por 2^15 / 128 = 256 (8 bits)
+	*/	
+		
+		sorteia10;
+		
+		
+	
+	system("PAUSE");
+	return 0;
+}
+
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
+
