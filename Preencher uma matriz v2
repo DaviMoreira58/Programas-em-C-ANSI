@@ -1,0 +1,92 @@
+/*
+	Preenchimento de um matriz bi-dimensinal com condições.
+	
+	
+	Autor: Davi Moreira
+	Data: abril de 2023
+
+*/
+
+
+/* ========================================================================= */
+/* --- Bibliotecas --- */
+#include <stdio.h>
+#include <stdlib.h>
+
+
+/* ========================================================================= */
+/* --- Constantes --- */
+
+
+/* ========================================================================= */
+/* --- Macros --- */
+
+
+/* ========================================================================= */
+/* --- Protótipos de Funções --- */
+
+
+/* ========================================================================= */
+/* --- Variáveis Globais --- */
+
+
+/* ========================================================================= */
+/* --- Função Principal --- */
+
+int main() {
+	
+	int matriz[4][6] = {0}; 
+	int linha,coluna, numero, i,j;
+	char resp;
+	
+	do{
+		
+		printf("Digite a linha entre 1 e 4: ");
+		scanf("%d", &linha);
+		printf("Digite a coluna entre 1 e 6: ");
+		scanf("%d", &coluna);
+		printf("Digite um valor de 0-999: ");
+		scanf("%d", &numero);
+		
+		if(linha < 1 || linha > 4){
+			printf("Numero de linhas errado. Tente novamente.\n");
+		}
+		else{
+			if(coluna < 1 || coluna > 6){
+				printf("Numero de colunas errado. Tente novamente.\n");
+			}else{
+				if(numero < 0 || numero > 999){
+					printf("Valor inesperado. Tente novamente.\n");
+				}else{
+					matriz[linha - 1][coluna - 1] = numero;
+		
+					for(i=0;i<4;i++){
+						printf("-------------------------------------\n");
+						printf("|");
+						for(j=0;j<6;j++){
+							printf(" %3d |", matriz[i][j]);
+						}
+						putchar('\n');
+					}
+					printf("-------------------------------------\n");
+				}
+			}
+		}
+		
+		printf("Quer continuar? [s][n] ");
+		scanf(" %c", &resp);
+		system("CLS");
+		
+	}while(resp != 'N' && resp != 'n');
+	
+	
+	return 0;
+}
+
+/* ========================================================================= */
+/* --- Desenvolvimento de Funções --- */
+
+
+
+
+/* ========================================================================= */
