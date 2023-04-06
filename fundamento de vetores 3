@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <conio.h> //ganha duas funções, a PUTS e a GETS, e elimina o problema de apertar a barra de espaço
+
+int main(){
+	
+	char nome[20];
+
+	puts("Digite seu nome: ");
+	gets(nome);
+	
+	printf("%s", nome);
+	
+	
+	return 0;
+}
