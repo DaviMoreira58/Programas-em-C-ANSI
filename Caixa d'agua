@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(){
+	
+	int litro, limite = 1000, caixa = 0;	
+	
+	while(caixa < limite){
+		printf("Digite um litro: ");
+		scanf("%i", &litro);
+		fflush(stdin);
+		
+		caixa += litro;
+	}
+	
+	printf("Caixa cheia %i", caixa);
+	
+	return 0;
+}
