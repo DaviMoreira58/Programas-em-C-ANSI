@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(){
+	
+	int notas[5] = {};
+//  int notas[5] = {0}; //faz com que todas as posições comecem em 0
+//	int notas[5] = {}; // tambem é valido fazer isso, é bom zerar o vetor para ele não começar com lixo
+	
+	for(int i = 0;i < 5; i++){
+		printf("Digite um valor: ");
+		scanf("%i", &notas[i]);
+		fflush(stdin);
+	}
+	
+	for(int i = 0;i < 5; i++){
+		printf("Valores digitados: %i \n", notas[i]);
+		
+	}
+	
+	return 0;
+}
