@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+	
+	int i= 0, numero;
+	
+	printf("Digite um numero: ");
+	scanf("%i", &numero);
+	fflush(stdin);
+	
+	while(i <= 10){
+		printf("Tabuada de %i x %i = %i \n", numero, i,  (numero * i));
+		i++;
+	}
+	
+	return 0;
+}
