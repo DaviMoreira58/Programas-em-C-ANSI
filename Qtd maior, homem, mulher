@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main(){
+	
+	int idade, qtdmenor, qtdhomens, qtdmulheres, i = 0;
+	char genero;
+	
+	
+		
+	while(i < 10){
+		printf("Digite sua idade: ");
+		scanf("%i", &idade);
+		fflush(stdin);
+		printf("Digite o genero: [m/f] ");
+		scanf("%c", &genero);
+		fflush(stdin);
+		
+		if(genero == 'm'){
+			qtdhomens++;
+		}else{
+			qtdmulheres++;
+		}
+		if(idade < 18){
+			qtdmenor++;
+		}
+		i++;
+	}
+	
+	printf("Qtd Homens %i\n", qtdhomens);
+	printf("Qtd Mulheres %i\n", qtdmulheres);
+	printf("Qtd Menores %i\n", qtdmenor);
+	
+	
+	return 0;
+}
