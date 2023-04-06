@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main(){
+	
+	int i= 0, numero, inicio, fim;
+	
+	printf("Digite um numero: ");
+	scanf("%i", &numero);
+	fflush(stdin);
+	printf("Digite o inicio: ");
+	scanf("%i", &inicio);
+	fflush(stdin);
+	printf("Digite o fim: ");
+	scanf("%i", &fim);
+	fflush(stdin);
+	
+	while(inicio <= fim){
+		printf("Tabuada de %i x %i = %i \n", numero, inicio,  (numero * inicio));
+		inicio++;
+	}
+	
+	return 0;
+}
