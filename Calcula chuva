@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main(){
+	int qtdChuvaPol;
+	float qtdChuvaTotal;
+	
+	printf("Digite a quantidade de chuva em Pol: ");
+	scanf("%i", &qtdChuvaPol);
+	
+	qtdChuvaTotal = qtdChuvaPol * 25.0;
+	
+	if(qtdChuvaTotal >= 60){
+		printf("Choveu muito");
+	}else{
+		printf("Choveu pouco");
+	}
+	
+	return 0;
+}
