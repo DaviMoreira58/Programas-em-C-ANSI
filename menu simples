@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <conio.h> //ganha duas funções, a PUTS e a GETS, e elimina o problema de apertar a barra de espaço
+#include <iostream> //comandos do DOS
+
+int main(){
+	
+	int opcao = 0;
+	
+	do{
+		system("cls");
+		printf("\nMenu principal ");
+		printf("\n1 - Cadastro ");
+		printf("\n2- Mostrar ");
+		printf("\n0 - Sair\n ");
+		scanf("%i", &opcao);
+		fflush(stdin);
+	}while(opcao != 0);
+
+	
+	return 0;
+}
