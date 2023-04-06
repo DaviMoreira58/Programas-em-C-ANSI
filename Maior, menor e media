@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main(){
+	
+	int valor, maValor, meValor, i = 0;
+	float media, acumulador;
+	 
+	printf("Digite um numero: ");
+	scanf("%i", &valor);
+	fflush(stdin);
+	maValor = valor;
+	meValor = valor;
+	acumulador = valor;
+	
+	while(i < 9){
+		
+		printf("Digite um numero: ");
+		scanf("%i", &valor);
+		if(valor > maValor){
+			maValor = valor;
+		}
+		if(valor < meValor){
+			meValor = valor;
+		}
+		
+		acumulador += valor;
+		
+		i++;
+		
+	}
+	
+	printf("Maior valor %i\n", maValor);
+	printf("Menor valor %i\n", meValor);
+	printf("Media %.2f", acumulador/10);
+	
+	return 0;
+}
