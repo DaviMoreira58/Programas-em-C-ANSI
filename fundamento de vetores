@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(){
+	
+	int notas[5];
+	
+		notas[0] = 5;
+		notas[1] = 7;
+		notas[2] = 10;
+		notas[3] = 5;
+		notas[4] = 30;
+		
+		printf("%i\t", notas[0]);
+		printf("%i\t", notas[1]);
+		printf("%i\t", notas[2]);
+		printf("%i\t", notas[3]);
+		printf("%i\t", notas[4]);
+	
+	
+	return 0;
+}
