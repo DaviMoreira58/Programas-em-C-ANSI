@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+// Função para carregar um vetor com valores aleatórios
+void carregaVetor(int valor[], int tamanho) {
+    srand(time(NULL));
+    for (int i = 0; i < tamanho; i++) {
+        valor[i] = rand() % 201; // Valores entre 0 e 200
+    }
+}
+
+// Função para exibir o vetor carregado
+void exibeVetor(int valor[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d: %d\n", i + 1, valor[i]);
+    }
+}
+
+int main() {
+    int valor[10]; // Vetor com 10 elementos
+    int vpesq, comeco, final, conta_loop;
+    int achou = 0; // 0 para falso, 1 para verdadeiro
+
+    carregaVetor(valor, 10);
+    exibeVetor(valor, 10);
+
+    do {
+        printf("\n");
+        printf("Informe o valor para busca (ESC ou menor que 0 termina): ");
+        scanf("%d", &vpesq);
+
+        if (vpesq >= 0) {
+            conta_loop = 0;
+            comeco = 0;
+            final = 9;
+            achou = 0;
+
+            while (!achou) {
+                // conta_loop = conta_loop + 1;
+                // printf("Estou na posição %d do vetor\n", comeco);
+                // printf("Número de buscas: %d\n", conta_loop);
+                if (comeco > final) {
+                    achou = 1;
+                    printf("\n");
+                    printf("Valor informado: %d\n", vpesq);
+                    printf("Não encontrado no vetor\n");
+                    printf("Número de buscas: %d\n", comeco + 1);
+                } else {
+                    if (vpesq == valor[comeco]) {
+                        achou = 1;
+                        printf("\n");
+                        printf("Valor informado: %d\n", vpesq);
+                        printf("Encontrado na posição: %d\n", comeco + 1);
+                        printf("Número de buscas: %d\n", comeco + 1);
+                    } else {
+                        comeco = comeco + 1;
+                    }
+                }
+            }
+        }
+    } while (vpesq >= 0);
+
+    return 0;
+}
