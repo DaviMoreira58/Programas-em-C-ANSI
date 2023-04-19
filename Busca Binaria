@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+// Função para realizar a busca binária em um array ordenado
+int buscaBinaria(int arr[], int n, int chave) {
+    int inicio = 0;
+    int fim = n - 1;
+    int meio;
+
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
+
+        if (arr[meio] == chave) {
+            // Elemento encontrado
+            return meio;
+        } else if (arr[meio] < chave) {
+            // Chave está à direita do meio
+            inicio = meio + 1;
+        } else {
+            // Chave está à esquerda do meio
+            fim = meio - 1;
+        }
+    }
+
+    // Chave não encontrada
+    return -1;
+}
+
+int main() {
+    int arr[] = {2, 5, 10, 15, 20, 25, 30, 35};
+    int n = sizeof(arr) / sizeof(arr[0]); // Tamanho do array
+    int chave = 20; // Valor a ser buscado
+    int indice;
+
+    // Realiza a busca binária
+    indice = buscaBinaria(arr, n, chave);
+
+    if (indice != -1) {
+        printf("Elemento %d encontrado no índice %d\n", chave, indice);
+    } else {
+        printf("Elemento %d não encontrado\n", chave);
+    }
+
+    return 0;
+}
